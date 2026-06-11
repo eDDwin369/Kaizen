@@ -141,106 +141,55 @@ export default function App() {
       case 'dashboard':
         return (
           <div className="tab-placeholder animate-fade-in">
-            <div className="placeholder-card">
-              <UserCheck size={48} className="placeholder-icon" />
-              <h3>Dashboard Summary</h3>
-              <p>Welcome to the Kojo Partner Portal overview. Access stats and settings instantly.</p>
+            <div className="coming-soon-banner">
+              <span className="coming-soon-bold">Coming Soon</span>
+              <span className="coming-soon-text">This section is under construction.</span>
             </div>
           </div>
         );
       case 'wallet':
         return (
           <div className="tab-placeholder animate-fade-in">
-            <div className="placeholder-card">
-              <WalletIcon size={48} className="placeholder-icon" />
-              <h3>My Wallet</h3>
-              <p>Current Balance: <strong style={{ color: 'var(--primary)' }}>${walletBalance.toFixed(2)}</strong></p>
-              <p className="placeholder-desc">Add deposits, review transactions, and adjust automatic purchase limits.</p>
-              <button className="deposit-btn" onClick={() => setWalletBalance(prev => prev + 1000)}>
-                Deposit $1,000.00
-              </button>
+            <div className="coming-soon-banner">
+              <span className="coming-soon-bold">Coming Soon</span>
+              <span className="coming-soon-text">This section is under construction.</span>
             </div>
           </div>
         );
       case 'marketplace':
         return (
           <div className="tab-placeholder animate-fade-in">
-            <div className="placeholder-card">
-              <FileText size={48} className="placeholder-icon" />
-              <h3>Leads Marketplace</h3>
-              <p>Discover real-time high-quality applications. Filter by loan type, credit tier, and geo-location.</p>
+            <div className="coming-soon-banner">
+              <span className="coming-soon-bold">Coming Soon</span>
+              <span className="coming-soon-text">This section is under construction.</span>
             </div>
           </div>
         );
       case 'debit-relief':
         return (
           <div className="tab-placeholder animate-fade-in">
-            <div className="placeholder-card">
-              <CheckCircle2 size={48} className="placeholder-icon" />
-              <h3>Debit Relief Hub</h3>
-              <p>Evaluate consumer debit reduction leads. Real-time screening and background profiles included.</p>
+            <div className="coming-soon-banner">
+              <span className="coming-soon-bold">Coming Soon</span>
+              <span className="coming-soon-text">This section is under construction.</span>
             </div>
           </div>
         );
       case 'chat':
         return (
-          <div className="chat-layout animate-fade-in">
-            {/* Contacts Sidebar */}
-            <div className="chat-sidebar">
-              <h3>Conversations</h3>
-              <div className="contact-list">
-                {chatContacts.map(contact => (
-                  <button 
-                    key={contact.name}
-                    className={`contact-item ${activeContact === contact.name ? 'active' : ''}`}
-                    onClick={() => setActiveContact(contact.name)}
-                  >
-                    <div className="contact-avatar">
-                      {contact.name.charAt(0)}
-                    </div>
-                    <div className="contact-info">
-                      <div className="contact-header">
-                        <span className="contact-name">{contact.name}</span>
-                        {contact.unread && <span className="unread-dot" />}
-                      </div>
-                      <p className="contact-last-msg">{contact.lastMessage}</p>
-                    </div>
-                  </button>
-                ))}
-              </div>
-            </div>
-            {/* Messages Thread */}
-            <div className="chat-thread-container">
-              <div className="chat-thread-header">
-                <h4>{activeContact}</h4>
-                <p>Status: Online</p>
-              </div>
-              <div className="chat-messages-box">
-                {chatMessages[activeContact]?.map((msg, idx) => (
-                  <div key={idx} className={`message-bubble-wrapper ${msg.sender}`}>
-                    <div className="message-bubble">
-                      <p>{msg.text}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <form className="chat-input-bar" onSubmit={sendChatMessage}>
-                <input
-                  type="text"
-                  placeholder="Type your message..."
-                  value={newMessageText}
-                  onChange={(e) => setNewMessageText(e.target.value)}
-                />
-                <button type="submit">Send</button>
-              </form>
+          <div className="tab-placeholder animate-fade-in">
+            <div className="coming-soon-banner">
+              <span className="coming-soon-bold">Coming Soon</span>
+              <span className="coming-soon-text">This section is under construction.</span>
             </div>
           </div>
         );
       default:
         return (
-          <div className="tab-placeholder">
-            <h3>Coming Soon</h3>
-            <p>This section is under construction.</p>
+          <div className="tab-placeholder animate-fade-in">
+            <div className="coming-soon-banner">
+              <span className="coming-soon-bold">Coming Soon</span>
+              <span className="coming-soon-text">This section is under construction.</span>
+            </div>
           </div>
         );
     }
