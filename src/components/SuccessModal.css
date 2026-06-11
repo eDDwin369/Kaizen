@@ -1,0 +1,341 @@
+.success-modal-card {
+  position: relative;
+  max-width: 480px; /* Aligned width with LeadDetailsModal to fit equal width buttons */
+  background-color: #ffffff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: var(--shadow-premium);
+}
+
+.success-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-close-btn:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+  color: var(--text-main);
+}
+
+.success-banner {
+  background-color: #e6f4ea; /* Light green top banner */
+  padding: 36px 24px 28px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.success-check-circle {
+  width: 56px;
+  height: 56px;
+  background-color: #0f9d58; /* Clean green checkmark */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 10px rgba(15, 157, 88, 0.2);
+}
+
+.check-icon-white {
+  color: #ffffff;
+}
+
+.success-banner h3 {
+  font-size: 1.35rem;
+  font-weight: 750;
+  color: var(--text-main);
+  margin-bottom: 8px;
+  letter-spacing: -0.2px;
+}
+
+.success-subtitle {
+  font-size: 0.88rem;
+  color: #3c4043;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.success-modal-body {
+  padding: 24px 24px 16px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-sizing: border-box;
+}
+
+.success-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.section-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 750;
+  color: var(--text-main);
+  letter-spacing: -0.1px;
+}
+
+.section-title-icon {
+  color: var(--text-muted);
+}
+
+/* Receipt container */
+.receipt-box {
+  background-color: #e8f0fe; /* Light ice-blue/grey background */
+  border: 1px solid #adc6ff; /* Solid border */
+  border-radius: var(--radius-md);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.receipt-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+}
+
+.receipt-key {
+  color: #5f6368;
+  font-weight: 500;
+}
+
+.receipt-value {
+  color: #202124;
+  font-weight: 600;
+}
+
+.receipt-value.val-bold {
+  font-weight: 750;
+}
+
+.receipt-divider {
+  height: 1px;
+  background-color: #adc6ff;
+  margin: 4px 0;
+}
+
+.charged-amount {
+  color: #c5221f; /* Amount charged red */
+  font-weight: 750;
+  font-size: 0.95rem;
+}
+
+/* Wallet Preview */
+.wallet-preview-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.wallet-pill {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+.pill-icon-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.blue-bg {
+  background-color: rgba(14, 82, 184, 1) !important;
+}
+.blue-text {
+  color: #ffffff !important;
+}
+.green-bg {
+  background-color: rgba(22, 165, 116, 1) !important;
+}
+.green-text {
+  color: #ffffff !important;
+}
+
+.pill-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.pill-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.pill-value {
+  font-size: 0.88rem;
+  font-weight: 750;
+  color: var(--text-main);
+}
+
+/* Chat Prompt Alert - Light Blue background matching mockup */
+.chat-notification-alert {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background-color: #e8f0fe; /* Light blue/lavender background tint */
+  border: 1px solid #d2e3fc; /* Light blue border */
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  box-sizing: border-box;
+}
+
+.alert-chat-icon-container {
+  width: 38px;
+  height: 38px;
+  background-color: #f47c00; /* Orange circular background */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  box-shadow: 0 3px 8px rgba(230, 124, 11, 0.15);
+}
+
+.alert-chat-icon {
+  color: #ffffff;
+}
+
+.alert-text-container {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.alert-title {
+  font-size: 0.88rem;
+  font-weight: 750;
+  color: #202124; /* Dark title */
+}
+
+.alert-desc {
+  font-size: 0.78rem;
+  color: #5f6368; /* Muted description */
+  margin-top: 1px;
+}
+
+/* Footer buttons grid */
+.success-modal-footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Buttons of exactly equal width */
+  gap: 12px;
+  padding: 12px 24px 24px 24px;
+  box-sizing: border-box;
+}
+
+.success-btn-secondary {
+  border: 1px solid var(--border-color);
+  background-color: #ffffff;
+  color: #3c4043;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 12px 8px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap; /* Prevent any text wrap */
+}
+
+.success-btn-secondary:hover {
+  border-color: #3c4043;
+  background-color: var(--border-light);
+}
+
+.success-btn-secondary:active {
+  transform: scale(0.98);
+}
+
+.success-btn-primary {
+  background-color: var(--primary);
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 12px 8px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  box-shadow: var(--shadow-sm);
+  white-space: nowrap; /* Prevent any text wrap */
+}
+
+.success-btn-primary:hover {
+  background-color: var(--primary-hover);
+  box-shadow: var(--shadow-md);
+}
+
+.success-btn-primary:active {
+  transform: scale(0.98);
+}
+
+/* Tablet & Mobile Breakpoints */
+@media (max-width: 550px) {
+  .success-modal-card {
+    border-radius: 20px;
+  }
+  
+  .success-banner {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding-top: 28px;
+    padding-bottom: 20px;
+  }
+
+  .success-modal-body {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  
+  .wallet-preview-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  
+  .success-modal-footer {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  
+  .success-btn-secondary {
+    order: 2; /* secondary button at bottom */
+  }
+  
+  .success-btn-primary {
+    order: 1; /* main primary button at top */
+  }
+}
