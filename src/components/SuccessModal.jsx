@@ -1,5 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { X, Check, FileText, Wallet, MessageSquare, ArrowRight } from 'lucide-react';
+import { formatCurrency, formatBalance } from '../utils/formatters';
 import './SuccessModal.css';
 
 export default function SuccessModal({ lead, onClose, walletBalance, onChatStart }) {
@@ -8,24 +10,6 @@ export default function SuccessModal({ lead, onClose, walletBalance, onChatStart
   const price = lead.price;
   const newBalance = walletBalance;
   const oldBalance = walletBalance + price;
-
-  // Format currency
-  const formatCurrency = (value) => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-      maximumFractionDigits: 0 // Note the screenshot has $4,250.00, let's keep 2 fraction digits for balance, but matching receipt
-    }).format(value);
-  };
-
-  const formatBalance = (value) => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2
-    }).format(value);
-  };
 
   // Generate a mock transaction ID based on lead ID
   const txnId = `TXN-2026-${lead.id.replace(/\D/g, '').padStart(4, '0')}`;
@@ -141,3 +125,21 @@ export default function SuccessModal({ lead, onClose, walletBalance, onChatStart
     </div>
   );
 }
+
+SuccessModal.propTypes = {
+  lead: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    leadCode: PropTypes.string.isRequired,
+    contactName: PropTypes.string.isRequired,
+    appliedAmount: PropTypes.number.isRequired,
+    status: PropTypes.string.isRequired,
+    eligibilityScore: PropTypes.number.isRequired,
+    price: PropTypes.number.isRequired,
+    readiness: PropTypes.string.isRequired,
+    leadType: PropTypes.string.isRequired,
+    location: PropTypes.string.isRequired
+  }),
+  onClose: PropTypes.func.isRequired,
+  walletBalance: PropTypes.number.isRequired,
+  onChatStart: PropTypes.func.isRequired
+};

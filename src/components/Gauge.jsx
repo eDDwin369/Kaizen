@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Gauge.css';
 
 export default function Gauge({ percentage, date = "Mar 2026" }) {
@@ -219,3 +220,8 @@ export default function Gauge({ percentage, date = "Mar 2026" }) {
     </div>
   );
 }
+
+Gauge.propTypes = {
+  percentage: PropTypes.number.isRequired,
+  date: PropTypes.string
+};

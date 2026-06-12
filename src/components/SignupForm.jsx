@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { User, Mail, Lock, Eye, EyeOff, Info, ArrowRight, UserPlus } from 'lucide-react';
 import './SignupForm.css';
 
@@ -220,3 +221,7 @@ export default function SignupForm({ onSignup }) {
     </div>
   );
 }
+
+SignupForm.propTypes = {
+  onSignup: PropTypes.func.isRequired
+};

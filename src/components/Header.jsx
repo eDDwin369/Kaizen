@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Menu, Search, Bell, ChevronDown, LogOut } from 'lucide-react';
 import './Header.css';
 
@@ -72,3 +73,13 @@ export default function Header({ user, onLogout, setSidebarOpen }) {
     </header>
   );
 }
+
+Header.propTypes = {
+  user: PropTypes.shape({
+    firstName: PropTypes.string.isRequired,
+    lastName: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired
+  }),
+  onLogout: PropTypes.func.isRequired,
+  setSidebarOpen: PropTypes.func.isRequired
+};

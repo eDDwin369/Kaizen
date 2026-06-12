@@ -1,20 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { X, User, Wallet, Check, ShoppingCart } from 'lucide-react';
 import Gauge from './Gauge';
+import { formatCurrency } from '../utils/formatters';
 import './LeadDetailsModal.css';
 
 export default function LeadDetailsModal({ lead, onClose, onPurchase, walletBalance }) {
   if (!lead) return null;
 
   const percentage = lead.eligibilityScore;
-
-  const formatCurrency = (value) => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-      maximumFractionDigits: 0
-    }).format(value);
-  };
 
   const isPurchased = lead.status === 'Purchased';
   const canAfford = walletBalance >= lead.price;
@@ -109,3 +103,21 @@ export default function LeadDetailsModal({ lead, onClose, onPurchase, walletBala
     </div>
   );
 }
+
+LeadDetailsModal.propTypes = {
+  lead: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    leadCode: PropTypes.string.isRequired,
+    contactName: PropTypes.string.isRequired,
+    appliedAmount: PropTypes.number.isRequired,
+    status: PropTypes.string.isRequired,
+    eligibilityScore: PropTypes.number.isRequired,
+    price: PropTypes.number.isRequired,
+    readiness: PropTypes.string.isRequired,
+    leadType: PropTypes.string.isRequired,
+    location: PropTypes.string.isRequired
+  }),
+  onClose: PropTypes.func.isRequired,
+  onPurchase: PropTypes.func.isRequired,
+  walletBalance: PropTypes.number.isRequired
+};

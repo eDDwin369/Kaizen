@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { memo } from 'react';
+import PropTypes from 'prop-types';
 import { Users, CheckCircle, Clock, Star } from 'lucide-react';
 import './StatsCard.css';
 
-export default function StatsCard({ type, count, label }) {
+function StatsCard({ type, count, label }) {
   const getCardDetails = () => {
     switch (type) {
       case 'total':
@@ -53,3 +54,11 @@ export default function StatsCard({ type, count, label }) {
     </div>
   );
 }
+
+StatsCard.propTypes = {
+  type: PropTypes.oneOf(['total', 'approved', 'pending', 'new']).isRequired,
+  count: PropTypes.number.isRequired,
+  label: PropTypes.string.isRequired
+};
+
+export default memo(StatsCard);

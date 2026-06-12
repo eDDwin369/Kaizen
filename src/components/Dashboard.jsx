@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { 
   Search, 
   SlidersHorizontal, 
@@ -360,4 +361,22 @@ export default function Dashboard({ leads, onViewLead }) {
     </div>
   );
 }
+
+Dashboard.propTypes = {
+  leads: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      leadCode: PropTypes.string.isRequired,
+      contactName: PropTypes.string.isRequired,
+      appliedAmount: PropTypes.number.isRequired,
+      status: PropTypes.string.isRequired,
+      eligibilityScore: PropTypes.number.isRequired,
+      price: PropTypes.number.isRequired,
+      readiness: PropTypes.string.isRequired,
+      leadType: PropTypes.string.isRequired,
+      location: PropTypes.string.isRequired
+    })
+  ).isRequired,
+  onViewLead: PropTypes.func.isRequired
+};
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { 
   LayoutDashboard, 
   Wallet, 
@@ -107,3 +108,10 @@ export default function Sidebar({ activeTab, setActiveTab, isOpen, setIsOpen }) 
     </>
   );
 }
+
+Sidebar.propTypes = {
+  activeTab: PropTypes.string.isRequired,
+  setActiveTab: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  setIsOpen: PropTypes.func.isRequired
+};

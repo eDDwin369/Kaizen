@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { memo } from 'react';
+import PropTypes from 'prop-types';
 import { ArrowRight } from 'lucide-react';
+import { formatCurrency } from '../utils/formatters';
 import './LeadCard.css';
 
-export default function LeadCard({ lead, onViewLead }) {
+function LeadCard({ lead, onViewLead }) {
   // Helper to map status to the corresponding index.css badge classes
   const getBadgeClass = (status) => {
     switch (status) {
@@ -17,15 +19,6 @@ export default function LeadCard({ lead, onViewLead }) {
       case 'Settled': return 'badge-settled';
       default: return 'badge-new';
     }
-  };
-
-  // Format currency
-  const formatCurrency = (value) => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-      maximumFractionDigits: 0
-    }).format(value);
   };
 
   return (
@@ -60,3 +53,14 @@ export default function LeadCard({ lead, onViewLead }) {
     </div>
   );
 }
+
+LeadCard.propTypes = {
+  lead: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    appliedAmount: PropTypes.number.isRequired,
+    status: PropTypes.string.isRequired
+  }).isRequired,
+  onViewLead: PropTypes.func.isRequired
+};
+
+export default memo(LeadCard);

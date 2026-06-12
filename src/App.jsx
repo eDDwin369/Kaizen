@@ -6,7 +6,6 @@ import Header from './components/Header';
 import Dashboard from './components/Dashboard';
 import LeadDetailsModal from './components/LeadDetailsModal';
 import SuccessModal from './components/SuccessModal';
-import { MessageSquare, Wallet as WalletIcon, FileText, CheckCircle2, UserCheck } from 'lucide-react';
 import './App.css';
 
 export default function App() {
@@ -19,32 +18,6 @@ export default function App() {
   const [selectedLead, setSelectedLead] = useState(null);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
-
-  // Chat conversation logs state for Chat Simulation
-  const [chatContacts, setChatContacts] = useState([
-    { name: 'James John', lastMessage: 'Hi Arthur, ready to talk about the Business Loan!', active: true, unread: true },
-    { name: 'James Brown', lastMessage: 'Sent you my profile details.', active: false, unread: false },
-    { name: 'Sarah Connor', lastMessage: 'Can we reschedule our call?', active: false, unread: false }
-  ]);
-
-  const [activeContact, setActiveContact] = useState('James John');
-  const [chatMessages, setChatMessages] = useState({
-    'James John': [
-      { sender: 'lead', text: 'Hello, I applied for the $5,000,000 Business Loan. Is my application approved?' },
-      { sender: 'agent', text: 'Hi James, I am reviewing your 83% Eligibility Score. It looks solid. Let me check the details.' },
-      { sender: 'lead', text: 'Great! I am ready to chat and provide any details you need.' }
-    ],
-    'James Brown': [
-      { sender: 'lead', text: 'Hello Arthur, please review my account.' },
-      { sender: 'agent', text: 'Will do, James! I see you have an Excellent rating.' }
-    ],
-    'Sarah Connor': [
-      { sender: 'lead', text: 'Hi, is there any update on the debit relief leads?' },
-      { sender: 'agent', text: 'Hi Sarah, yes, we are reviewing your application now.' }
-    ]
-  });
-
-  const [newMessageText, setNewMessageText] = useState('');
 
   const handleSignup = (userInfo) => {
     setUser(userInfo);
@@ -74,58 +47,10 @@ export default function App() {
     }
   };
 
-  const handleChatStart = (lead) => {
-    // Add lead contact if it doesn't exist yet
-    const contactName = lead.contactName;
-    if (!chatMessages[contactName]) {
-      setChatContacts(prev => [
-        { name: contactName, lastMessage: 'Ready to connect!', active: true, unread: false },
-        ...prev.map(c => ({ ...c, active: false }))
-      ]);
-      setChatMessages(prev => ({
-        ...prev,
-        [contactName]: [
-          { sender: 'lead', text: `Hi, I'm ready to chat about Lead details for ${lead.id}!` }
-        ]
-      }));
-    }
-    setActiveContact(contactName);
+  const handleChatStart = () => {
     setActiveTab('chat');
     setShowSuccessModal(false);
     setSelectedLead(null);
-  };
-
-  const sendChatMessage = (e) => {
-    e.preventDefault();
-    if (!newMessageText.trim()) return;
-
-    setChatMessages(prev => ({
-      ...prev,
-      [activeContact]: [
-        ...prev[activeContact],
-        { sender: 'agent', text: newMessageText }
-      ]
-    }));
-
-    setChatContacts(prev => 
-      prev.map(c => c.name === activeContact ? { ...c, lastMessage: newMessageText } : c)
-    );
-
-    setNewMessageText('');
-
-    // Simulate auto lead reply after 1.5 seconds
-    setTimeout(() => {
-      setChatMessages(prev => ({
-        ...prev,
-        [activeContact]: [
-          ...prev[activeContact],
-          { sender: 'lead', text: 'Thank you! Let me know what information you need next.' }
-        ]
-      }));
-      setChatContacts(prev => 
-        prev.map(c => c.name === activeContact ? { ...c, lastMessage: 'Thank you! Let me know what information you need next.' } : c)
-      );
-    }, 1500);
   };
 
   // Switch views depending on the activeTab state
